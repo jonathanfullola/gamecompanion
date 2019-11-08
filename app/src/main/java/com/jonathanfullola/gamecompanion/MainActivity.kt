@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
                     fragmentTransaction.add(fragmentContainer.id, guideFragment)
                     fragmentTransaction.commit()
 
+                    //TODO entregable
+
                 }
 
                 R.id.chat -> {
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity() {
                     val fragmentTransaction = fragmentManager.beginTransaction()
                     fragmentTransaction.add(fragmentContainer.id, chatFragment)
                     fragmentTransaction.commit()
+
 
                 }
 
