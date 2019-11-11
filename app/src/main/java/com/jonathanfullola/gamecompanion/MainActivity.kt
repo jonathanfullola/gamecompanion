@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        bottomNavigationView.setOnNavigationItemReselectedListener { menuItem ->
+        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             //switch menu id
             when(menuItem.itemId){
                 R.id.guide -> {
