@@ -1,4 +1,4 @@
-package com.jonathanfullola.gamecompanion
+package com.jonathanfullola.gamecompanion.fragment
 
 
 import android.content.Intent
@@ -8,6 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.firebase.auth.FirebaseAuth
+import com.jonathanfullola.gamecompanion.R
+import com.jonathanfullola.gamecompanion.activity.LoginActivity
+import com.jonathanfullola.gamecompanion.activity.RegisterActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 
@@ -43,6 +46,13 @@ class ProfileFragment : Fragment() {
     private fun initUI(){
         //check user available
         if(FirebaseAuth.getInstance().currentUser == null){
+            loginButton.visibility = View.VISIBLE
+            logoutButton.visibility = View.GONE
+            loginButton.setOnClickListener{
+                //Todo: Go to login screen
+                startActivity(Intent(requireContext(),LoginActivity::class.java))
+            }
+
             //show register button
             registerButton.visibility = View.VISIBLE
             registerButton.setOnClickListener {
@@ -52,6 +62,8 @@ class ProfileFragment : Fragment() {
         }else{
             //Hide register button
             registerButton.visibility = View.GONE
+
+            loginButton.visibility = View.GONE
             //TODO show profile
             logoutButton.visibility = View.VISIBLE
             logoutButton.setOnClickListener{

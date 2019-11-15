@@ -1,8 +1,11 @@
-package com.jonathanfullola.gamecompanion
+package com.jonathanfullola.gamecompanion.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentManager
+import com.jonathanfullola.gamecompanion.R
+import com.jonathanfullola.gamecompanion.fragment.ChatFragment
+import com.jonathanfullola.gamecompanion.fragment.GuideFragment
+import com.jonathanfullola.gamecompanion.fragment.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

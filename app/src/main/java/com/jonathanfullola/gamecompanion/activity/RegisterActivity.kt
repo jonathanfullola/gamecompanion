@@ -1,12 +1,15 @@
-package com.jonathanfullola.gamecompanion
+package com.jonathanfullola.gamecompanion.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.jonathanfullola.gamecompanion.R
+import com.jonathanfullola.gamecompanion.model.UserModel
+import com.jonathanfullola.gamecompanion.util.COLLECTION_USERS
 import kotlinx.android.synthetic.main.activity_register.*
-import kotlinx.android.synthetic.main.fragment_profile.*
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -20,8 +23,8 @@ class RegisterActivity : AppCompatActivity() {
             val username = usernameText.text?.toString().orEmpty()
             val email = emailText.text?.toString().orEmpty()
             val password = passwordText.text?.toString().orEmpty()
+
      //User validation
-            //validacio
             if(username.trim().isEmpty()){
                 //Error
                 Toast.makeText(this, getString(R.string.invalid_username), Toast.LENGTH_LONG).show()
@@ -45,14 +48,23 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-
+    //Create user
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
                 .addOnSuccessListener {  authResult ->
                     Toast.makeText(this,getString(R.string.user_created_succesfully), Toast.LENGTH_LONG).show()
-
+                    finish()
+                    val userModel = UserModel(
+                        id = authResult.user?.uid ?: "",
+                        username = username,
+                        email = email
+                    )
+                    FirebaseFirestore.getInstance().collection(COLLECTION_USERS).document().set(userModel)
+                        .addOnSuccessListener {  }
+                        .addOnFailureListener{  }
                 }
                 .addOnFailureListener {
                     Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()
+                    //Handle errors
                 }
 
 

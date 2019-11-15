@@ -3,8 +3,9 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".ProfileFragment"
-             android:orientation="vertical">
+             tools:context=".fragment.ProfileFragment"
+             android:orientation="vertical"
+              android:gravity="center">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -14,6 +15,11 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_medium_height"
             android:text="@string/profile_register_button"/>
+    <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_medium_height"
+            android:text="@string/profile_login_button"/>
     <Button
             android:id="@+id/logoutButton"
             android:layout_width="match_parent"
