@@ -26,4 +26,11 @@
             android:layout_height="@dimen/item_medium_height"
             android:text="@string/logout"/>
 
+    <TextView
+            android:id="@+id/usernameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_medium_height"
+    />
+
 </LinearLayout>
