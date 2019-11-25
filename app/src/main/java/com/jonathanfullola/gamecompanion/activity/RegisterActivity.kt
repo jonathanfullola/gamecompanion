@@ -24,6 +24,7 @@ class RegisterActivity : AppCompatActivity() {
             val email = emailText.text?.toString().orEmpty()
             val password = passwordText.text?.toString().orEmpty()
 
+
      //User validation
             if(username.trim().isEmpty()){
                 //Error

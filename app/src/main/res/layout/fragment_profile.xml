@@ -32,5 +32,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_medium_height"
     />
+    <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:id="@+id/avatar"
+            android:src="@drawable/ic_profile"
+    />
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/takePictureButton"
+            android:text="Update Picture"
+    />
 
 </LinearLayout>
