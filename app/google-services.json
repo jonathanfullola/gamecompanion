@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "865673032015",
+    "firebase_url": "https://gamecompanion-885b7.firebaseio.com",
+    "project_id": "gamecompanion-885b7",
+    "storage_bucket": "gamecompanion-885b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865673032015:android:695c8528ff413d90cd153a",
+        "android_client_info": {
+          "package_name": "com.jonathanfullola.gamecompanion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "865673032015-posf1bcridf02ckoj7qj8ehen8gpcekv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZjSzpmuy3QvkwkDfh2XPMAzwb_y29fOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "865673032015-posf1bcridf02ckoj7qj8ehen8gpcekv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
