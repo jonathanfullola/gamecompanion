@@ -60,8 +60,12 @@ class RegisterActivity : AppCompatActivity() {
                         email = email
                     )
                     FirebaseFirestore.getInstance().collection(COLLECTION_USERS).document(authResult.user?.uid ?: "").set(userModel)
-                        .addOnSuccessListener {  }
-                        .addOnFailureListener{  }
+                        .addOnSuccessListener {  finish()
+                        }
+                        .addOnFailureListener{
+
+                        }
+                    finish()
                 }
                 .addOnFailureListener {
                     Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()

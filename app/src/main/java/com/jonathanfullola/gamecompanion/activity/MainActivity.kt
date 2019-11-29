@@ -17,21 +17,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        bottomNavigationView.setItemIconTintList(null)
+
         MobileAds.initialize(this){}
         val adRequest = AdRequest.Builder().build()
         bannerAdView.loadAd(adRequest)
 
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+            //create fragments
+            var guideFragment = GuideFragment()
+            var chatFragment = ChatFragment()
+            var profileFragment = ProfileFragment()
+
             //switch menu id
             when(menuItem.itemId){
                 R.id.guide -> {
                     FirebaseAnalytics.getInstance(this).logEvent("Guide_Tab_Click",null)
-                    //create fragment
-                    var guideFragment = GuideFragment()
                     //add fragment to fragment container
                     val fragmentManager = supportFragmentManager
                     val fragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.add(fragmentContainer.id, guideFragment)
+                    fragmentTransaction.replace(fragmentContainer.id, guideFragment)
                     fragmentTransaction.commit()
 
                     //TODO entregable
@@ -42,12 +47,10 @@ class MainActivity : AppCompatActivity() {
 
                     // Obtain the FirebaseAnalytics instance.
                     FirebaseAnalytics.getInstance(this).logEvent("Chat_Tab_Click",null)
-                    //create fragment
-                    var chatFragment = ChatFragment()
                     //add fragment to fragment container
                     val fragmentManager = supportFragmentManager
                     val fragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.add(fragmentContainer.id, chatFragment)
+                    fragmentTransaction.replace(fragmentContainer.id, chatFragment)
                     fragmentTransaction.commit()
 
 
@@ -55,12 +58,10 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.profile -> {
                     FirebaseAnalytics.getInstance(this).logEvent("Profile_Tab_Click",null)
-                    //create fragment
-                    var profileFragment = ProfileFragment()
                     //add fragment to fragment container
                     val fragmentManager = supportFragmentManager
                     val fragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.add(fragmentContainer.id, profileFragment)
+                    fragmentTransaction.replace(fragmentContainer.id, profileFragment)
                     fragmentTransaction.commit()
                 }
 
