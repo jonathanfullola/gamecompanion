@@ -12,7 +12,7 @@ class SharedPreferencesManager{
 
     val userPreferencesFileName = "userPreferences";
     val usernameKey = "username";
-
+    val imagekey = "image"
 
     fun getUsername(context: Context):String? {
 
@@ -27,6 +27,16 @@ class SharedPreferencesManager{
     fun clear(context: Context){
         val sharedPreferences = context.getSharedPreferences(userPreferencesFileName, Context.MODE_PRIVATE)
         sharedPreferences.edit().clear().apply()
+    }
+
+    fun setAvatar(context: Context,image:String?){
+        val sharedPreferences = context.getSharedPreferences(userPreferencesFileName, Context.MODE_PRIVATE)
+        sharedPreferences.edit().putString(imagekey,image).apply()
+    }
+
+    fun getAvatar(context: Context):String?{
+        val sharedPreferences = context.getSharedPreferences(userPreferencesFileName, Context.MODE_PRIVATE)
+        return sharedPreferences.getString(imagekey,null)
     }
 
 }

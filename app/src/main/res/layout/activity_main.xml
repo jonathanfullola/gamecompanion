@@ -5,8 +5,20 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.MainActivity">
+        tools:context=".activity.MainActivity"
+        android:background="@drawable/mainbg"
+        >
 
+
+    <com.google.android.gms.ads.AdView
+            android:id="@+id/bannerAdView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/bottomNavigationView"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+
+            />
 
     <FrameLayout
             android:id="@+id/fragmentContainer"
@@ -19,17 +31,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/menu_tabs"
-
+            app:itemBackground="@color/guideColorNoTransWeak"
+            app:itemTextColor="@color/white"
             android:layout_alignParentBottom="true"
     />
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/bannerAdView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/bottomNavigationView"
-        app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-5407764744831396~5067436141"
 
-        />
 
 </RelativeLayout>

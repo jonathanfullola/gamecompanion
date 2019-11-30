@@ -3,7 +3,8 @@
     <dimen name="item_medium_height">48dp</dimen>
     <dimen name="marginStart">16dp</dimen>
     <dimen name="marginEnd">16dp</dimen>
-    <dimen name="guideImg_w">140dp</dimen>
-    <dimen name="guideImg_h">140dp</dimen>
+    <dimen name="guideImg_w">100dp</dimen>
+    <dimen name="guideImg_h">100dp</dimen>
     <dimen name="tinyBar">16dp</dimen>
+    <dimen name="guide_font_size">32dp</dimen>
 </resources>

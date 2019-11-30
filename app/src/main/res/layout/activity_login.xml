@@ -12,10 +12,10 @@
         tools:context=".activity.LoginActivity">
 
     <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/loginusernameText"
+            android:id="@+id/loginemailText"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_medium_height"
-            android:hint="@string/username_hint"
+            android:hint="@string/email_hint"
             android:gravity="center"
     />
 
@@ -36,5 +36,12 @@
             android:text="@string/login_button"
             style="@style/Widget.AppCompat.Button.Borderless"
     />
+
+    <ProgressBar
+            android:id="@+id/progresbar"
+            android:indeterminate="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
 
 </LinearLayout>

@@ -5,9 +5,8 @@
              android:layout_height="match_parent"
              tools:context=".fragment.ProfileFragment"
              android:orientation="vertical"
-              android:gravity="center">
-
-    <!-- TODO: Update blank fragment layout -->
+              android:gravity="center"
+        android:background="@color/white">
 
 
     <Button

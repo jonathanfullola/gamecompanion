@@ -12,8 +12,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.auth.User
 import com.google.firebase.storage.FirebaseStorage
 import com.jonathanfullola.gamecompanion.R
 import com.jonathanfullola.gamecompanion.activity.LoginActivity
@@ -21,6 +23,7 @@ import com.jonathanfullola.gamecompanion.activity.RegisterActivity
 import com.jonathanfullola.gamecompanion.model.UserModel
 import com.jonathanfullola.gamecompanion.util.COLLECTION_USERS
 import com.jonathanfullola.gamecompanion.util.SharedPreferencesManager
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -61,9 +64,11 @@ class ProfileFragment : Fragment() {
             loginButton.visibility = View.VISIBLE
             logoutButton.visibility = View.GONE
             usernameTextView.visibility = View.GONE
+            avatar.setImageResource(R.drawable.ic_profile)
             loginButton.setOnClickListener{
                 //Todo: Go to login screen
                 startActivity(Intent(requireContext(),LoginActivity::class.java))
+                progresbar.visibility = View.GONE
             }
 
             //show register button
@@ -92,7 +97,7 @@ class ProfileFragment : Fragment() {
 
             showUser()
             takePictureButton.setOnClickListener {
-                takePicture();
+                takePicture()
             }
         }
     }
@@ -121,6 +126,23 @@ class ProfileFragment : Fragment() {
                     }
             }
 
+        //TODO change image
+        SharedPreferencesManager().getAvatar(requireContext())?.let {
+            Glide.with(this).load(it).into(avatar)
+        }?:run {
+            val userId = FirebaseAuth.getInstance().currentUser?.uid?:""
+            FirebaseFirestore.getInstance()
+                .collection(COLLECTION_USERS)
+                .document(userId).get()
+                .addOnSuccessListener {
+                    val userprofile = it.toObject(UserModel::class.java)
+                    Glide.with(this).load(userprofile?.downloadUrl.toString()).into(avatar)
+                    SharedPreferencesManager().setAvatar(requireContext(),userprofile?.downloadUrl.toString())
+                }
+                .addOnFailureListener{
+                    Toast.makeText(requireContext(),it.localizedMessage, Toast.LENGTH_LONG).show()
+                }
+        }
 
     }
 
@@ -155,12 +177,13 @@ class ProfileFragment : Fragment() {
             uploadTask
                 .addOnSuccessListener {
                     avatarImageReference.downloadUrl.addOnSuccessListener {
+                        val photo = it.toString()
                         FirebaseFirestore.getInstance()
                             .collection(COLLECTION_USERS)
                             .document(userId)
                             .update("downloadUrl",it.toString())
                             .addOnSuccessListener {
-
+                                SharedPreferencesManager().setAvatar(requireContext(),photo)
                             }
                             .addOnFailureListener{
                                 it.printStackTrace()
@@ -172,6 +195,9 @@ class ProfileFragment : Fragment() {
                 .addOnFailureListener{
 
                 }
+
+
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         val adRequest = AdRequest.Builder().build()
         bannerAdView.loadAd(adRequest)
 
+
+
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             //create fragments
             var guideFragment = GuideFragment()
@@ -38,8 +40,6 @@ class MainActivity : AppCompatActivity() {
                     val fragmentTransaction = fragmentManager.beginTransaction()
                     fragmentTransaction.replace(fragmentContainer.id, guideFragment)
                     fragmentTransaction.commit()
-
-                    //TODO entregable
 
                 }
 
@@ -69,11 +69,5 @@ class MainActivity : AppCompatActivity() {
 
             true
         }
-
-
-
-
-
-
     }
 }

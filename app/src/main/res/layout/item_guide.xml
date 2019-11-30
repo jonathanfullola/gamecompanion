@@ -3,7 +3,9 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:gravity="center_vertical">
+              android:gravity="center_vertical"
+              android:background="@color/guideColor"
+        >
 
 
 
@@ -12,22 +14,31 @@
             android:layout_height="match_parent">
 
         <ImageView
+                android:layout_margin="@dimen/marginEnd"
                 android:id="@+id/imageView"
                 android:layout_width="@dimen/guideImg_w"
                 android:layout_height="@dimen/guideImg_h"
                 android:src="@drawable/link"
         />
         <TextView
+                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Title description"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/marginStart"
+                android:textSize="@dimen/guide_font_size"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:fontFamily="@font/zeldafont"
         />
 
     </LinearLayout>
+
     <ImageView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/tinyBar"/>
+            android:layout_height="match_parent"
+            android:src="@drawable/litletinybar"
+            />
 
 </LinearLayout>
