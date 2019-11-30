@@ -68,7 +68,6 @@ class ProfileFragment : Fragment() {
             loginButton.setOnClickListener{
                 //Todo: Go to login screen
                 startActivity(Intent(requireContext(),LoginActivity::class.java))
-                progresbar.visibility = View.GONE
             }
 
             //show register button

@@ -30,10 +30,15 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 }
                 .addOnFailureListener{
+                    progresbar.visibility = View.GONE
                     Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()
                 }
-
         }
+    }
 
+    override fun onResume() {
+        super.onResume()
+
+        progresbar.visibility = View.GONE
     }
 }
