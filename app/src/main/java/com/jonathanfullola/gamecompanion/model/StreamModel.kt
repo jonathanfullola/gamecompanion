@@ -1,5 +1,6 @@
 package com.jonathanfullola.gamecompanion.model
 
+import android.database.AbstractCursor
 import com.google.gson.annotations.SerializedName
 
 data class StreamModel(
@@ -12,5 +13,10 @@ data class StreamModel(
 )
 
 data class StreamsResponse(
+    val data: List<StreamModel>? = null,
+    val pagination: TwitchPagination? = null
+)
 
+data class TwitchPagination(
+    val cursor: String? = null
 )

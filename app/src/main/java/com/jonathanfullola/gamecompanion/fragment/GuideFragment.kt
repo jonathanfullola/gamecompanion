@@ -43,8 +43,6 @@ class GuideFragment : Fragment() {
 
         val secretAdapter = GuideListAdapter()
 
-        //TODO read from firebase
-
 
         FirebaseFirestore.getInstance().collection(COLLECTION_GUIDE).get()
             .addOnSuccessListener {
