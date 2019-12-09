@@ -9,6 +9,7 @@ import com.jonathanfullola.gamecompanion.R
 import com.jonathanfullola.gamecompanion.fragment.ChatFragment
 import com.jonathanfullola.gamecompanion.fragment.GuideFragment
 import com.jonathanfullola.gamecompanion.fragment.ProfileFragment
+import com.jonathanfullola.gamecompanion.fragment.StreamsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
             //create fragments
             var guideFragment = GuideFragment()
             var chatFragment = ChatFragment()
+            var streamFragment = StreamsFragment()
             var profileFragment = ProfileFragment()
 
             //switch menu id
@@ -50,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                     //add fragment to fragment container
                     val fragmentManager = supportFragmentManager
                     val fragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.replace(fragmentContainer.id, chatFragment)
+                    fragmentTransaction.replace(fragmentContainer.id, streamFragment)
                     fragmentTransaction.commit()
 
 

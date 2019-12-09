@@ -31,15 +31,16 @@ class StreamsFragment: Fragment(){
 
         TwitchApiService.endpoints.getStreams().enqueue(object :retrofit2.Callback<StreamsResponse>{
             override fun onFailure(call: retrofit2.Call<StreamsResponse>, t: Throwable) {
-                Log.w("StreamsFragment",t)
+                Log.w("StreamFragment",t)
             }
 
-            override fun onResponse(
-                call: retrofit2.Call<StreamsResponse>,
-                response: Response<StreamsResponse>) {
-                Log.i("StreamsFragment","++ onResponse ++")
+            override fun onResponse(call: retrofit2.Call<StreamsResponse>, response: Response<StreamsResponse>) {
+
+                Log.i("StreamFragment","++ onResponse ++")
                 if(response.isSuccessful){
-                    Log.i("StreamsFragment", response.body()?.toString() ?: "Null body")
+                    Log.i("StreamFragment", response.body()?.toString() ?: "Null body")
+                }else{
+                    Log.w("StreamFragment",response.message())
                 }
             }
         })
