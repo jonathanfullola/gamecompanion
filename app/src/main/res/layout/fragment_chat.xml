@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
@@ -8,11 +8,34 @@
         >
 
     <!-- TODO: Update blank fragment layout -->
-    <Button
-            android:id="@+id/testButton"
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    />
+
+
+    <RelativeLayout
+            android:id ="@+id/bottomContent"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_medium_height"
-            android:text="test"/>
+            android:orientation="vertical"
+    >
+        <EditText
+                android:id ="@+id/messageEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toStartOf="@+id/sendButton"
+        />
+
+        <Button
+                android:id ="@+id/sendButton"
+                android:layout_width="100dp"
+                android:layout_alignParentEnd="true"
+                android:text = "send"
+                android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+</RelativeLayout>
 
 
-</FrameLayout>
