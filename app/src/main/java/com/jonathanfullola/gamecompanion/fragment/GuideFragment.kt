@@ -8,12 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jonathanfullola.gamecompanion.R
 import com.jonathanfullola.gamecompanion.model.GuideModel
 import com.jonathanfullola.gamecompanion.util.COLLECTION_GUIDE
-import com.jonathanfullola.gamecompanion.util.GuideListAdapter
+import com.jonathanfullola.gamecompanion.adapter.GuideListAdapter
 import kotlinx.android.synthetic.main.fragment_guide.*
 
 

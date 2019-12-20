@@ -2,14 +2,17 @@ package com.jonathanfullola.gamecompanion.fragment
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jonathanfullola.gamecompanion.R
+import com.jonathanfullola.gamecompanion.adapter.ChatAdapter
 import com.jonathanfullola.gamecompanion.model.ChatMessage
 import com.jonathanfullola.gamecompanion.util.COLLECTION_CHAT
 import com.jonathanfullola.gamecompanion.util.COLLECTION_GUIDE
@@ -38,6 +41,11 @@ class ChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        subscribeToMessages()
+
         sendButton.setOnClickListener {
             val text = messageEditText.text.toString()
             if(text.isNotBlank()){
@@ -46,16 +54,37 @@ class ChatFragment : Fragment() {
         }
     }
 
+    private val adapter = ChatAdapter(emptyList())
+
     private fun sendMessage(text: String){
         val chatMessage = ChatMessage(text = text, timesteamp = System.currentTimeMillis(), userId = FirebaseAuth.getInstance().currentUser?.uid)
         FirebaseFirestore.getInstance()
             .collection(COLLECTION_CHAT)
-            .add(text)
+            .add(chatMessage)
             .addOnSuccessListener {
-
+                Log.i("ChatFragment", "MessageAdded")
             }
             .addOnFailureListener{
                 it.printStackTrace()
             }
+    }
+
+    private fun subscribeToMessages(){
+        FirebaseFirestore.getInstance()
+            .collection(COLLECTION_CHAT)
+            .addSnapshotListener{querySnapshot, firebaseFirestoreException ->
+                //Check Fragment Exists
+                if(!isAdded) return@addSnapshotListener
+
+                //Get Messages From Collection
+                val messages = querySnapshot?.documents
+                    ?.map{it.toObject(ChatMessage::class.java)?:ChatMessage()}
+                    ?: emptyList()
+
+                //Update List
+                adapter.list = messages
+                adapter.notifyDataSetChanged()
+            }
+
     }
 }

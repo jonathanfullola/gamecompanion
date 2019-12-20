@@ -1,4 +1,4 @@
-package com.jonathanfullola.gamecompanion.util
+package com.jonathanfullola.gamecompanion.adapter
 
 import android.view.LayoutInflater
 import android.view.View
