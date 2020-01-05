@@ -3,6 +3,8 @@
     <string name="tab_profile">Profile</string>
     <string name="tab_chat">Chat</string>
     <string name="tab_guide">Guide</string>
+    <string name="tab_streams">Streams</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="profile_register_button">Register Here</string>

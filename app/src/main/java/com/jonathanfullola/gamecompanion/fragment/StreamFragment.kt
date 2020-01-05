@@ -1,4 +1,4 @@
-package com.jonathanfullola.gamecompanion.fragment
+package com.jonathanfullola.  .fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -20,18 +20,11 @@ class StreamsFragment: Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ):  View? {
-        return inflater.inflate(R.layout.fragment_chat,container)
+        return inflater.inflate(R.layout.fragment_streams,container)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        /*
-        lifecycleScope.launch(){
-            val streamsResponse = TwitchApiService.endpoints.getStreams()
-            val streams = streamsResponse.data ?: emptyList()
-        }
-        */
 
         TwitchApiService.endpoints.getStreams().enqueue(object :retrofit2.Callback<StreamsResponse>{
             override fun onFailure(call: retrofit2.Call<StreamsResponse>, t: Throwable) {

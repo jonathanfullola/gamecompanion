@@ -36,12 +36,12 @@ class MainActivity : AppCompatActivity() {
             //switch menu id
             when(menuItem.itemId){
                 R.id.guide -> {
-                    FirebaseAnalytics.getInstance(this).logEvent("Guide_Tab_Click",null)
                     //add fragment to fragment container
                     val fragmentManager = supportFragmentManager
                     val fragmentTransaction = fragmentManager.beginTransaction()
                     fragmentTransaction.replace(fragmentContainer.id, guideFragment)
                     fragmentTransaction.commit()
+                    FirebaseAnalytics.getInstance(this).logEvent("Guide_Tab_Click",null)
                 }
 
                 R.id.chat -> {
@@ -55,12 +55,21 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.profile -> {
-                    FirebaseAnalytics.getInstance(this).logEvent("Profile_Tab_Click",null)
                     //add fragment to fragment container
                     val fragmentManager = supportFragmentManager
                     val fragmentTransaction = fragmentManager.beginTransaction()
                     fragmentTransaction.replace(fragmentContainer.id, profileFragment)
                     fragmentTransaction.commit()
+                    FirebaseAnalytics.getInstance(this).logEvent("Profile_Tab_Click",null)
+                }
+
+                R.id.streams -> {
+                    //add fragment to fragment container
+                    val fragmentManager = supportFragmentManager
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+                    fragmentTransaction.replace(fragmentContainer.id, streamFragment)
+                    fragmentTransaction.commit()
+                    FirebaseAnalytics.getInstance(this).logEvent("Stream_Fragment_Click",null)
                 }
 
             }

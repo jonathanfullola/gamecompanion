@@ -10,7 +10,11 @@ data class StreamModel(
     val title: String? = null,
     @SerializedName ("viewer_count") val viewerCount: Int? = null,
     @SerializedName ("thumbnail_url") val thumbnailUrl: String? = null
-)
+){
+    fun getThumbnailUrl(width: Int, height:IODW){
+
+    }
+}
 
 data class StreamsResponse(
     val data: List<StreamModel>? = null,

@@ -12,13 +12,15 @@ interface TwitchApiService {
 
     @Headers("Client-ID: ywvglt0gib8rqdly0ejobehqfi071m")
     @GET("streams")
-    fun getStreams():retrofit2.Call<StreamsResponse>
+    fun getStreams(): retrofit2.Call<StreamsResponse>
 
     companion object{
+        //Http client
         private val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.twitch..tv/helix")
+            .baseUrl("https://api.twitch.tv/helix/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+        //Endpoints
         var endpoints = retrofit.create<TwitchApiService>(TwitchApiService::class.java)
     }
 

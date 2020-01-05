@@ -3,4 +3,6 @@
 <item android:title="Guide" android:id="@+id/guide" android:icon="@drawable/book"/>
 <item android:title="@string/tab_chat" android:id="@+id/chat" android:icon="@drawable/mask"/>
 <item android:title="@string/tab_profile" android:id="@+id/profile" android:icon="@drawable/link"/>
+<item android:title="@string/tab_streams" android:id="@+id/streams" android:icon="@drawable/common_google_signin_btn_icon_dark"/>
+
 </menu>
