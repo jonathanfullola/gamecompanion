@@ -5,6 +5,7 @@
              android:layout_height="match_parent"
              tools:context=".fragment.ChatFragment"
              android:background="@color/white"
+             android:orientation="vertical"
         >
 
     <!-- TODO: Update blank fragment layout -->
@@ -12,6 +13,7 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_above="@id/bottomContent"
     />
 
 
@@ -20,6 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_medium_height"
             android:orientation="vertical"
+            android:layout_alignParentBottom="true"
     >
         <EditText
                 android:id ="@+id/messageEditText"
@@ -32,7 +35,7 @@
                 android:id ="@+id/sendButton"
                 android:layout_width="100dp"
                 android:layout_alignParentEnd="true"
-                android:text = "send"
+                android:text = "Send"
                 android:layout_height="match_parent"/>
     </RelativeLayout>
 

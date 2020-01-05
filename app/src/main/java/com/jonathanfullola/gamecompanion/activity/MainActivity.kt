@@ -42,20 +42,16 @@ class MainActivity : AppCompatActivity() {
                     val fragmentTransaction = fragmentManager.beginTransaction()
                     fragmentTransaction.replace(fragmentContainer.id, guideFragment)
                     fragmentTransaction.commit()
-
                 }
 
                 R.id.chat -> {
-
-                    // Obtain the FirebaseAnalytics instance.
-                    FirebaseAnalytics.getInstance(this).logEvent("Chat_Tab_Click",null)
                     //add fragment to fragment container
                     val fragmentManager = supportFragmentManager
                     val fragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.replace(fragmentContainer.id, streamFragment)
+                    fragmentTransaction.replace(fragmentContainer.id, chatFragment)
                     fragmentTransaction.commit()
-
-
+                    // Obtain the FirebaseAnalytics instance.
+                    FirebaseAnalytics.getInstance(this).logEvent("Chat_Tab_Click",null)
                 }
 
                 R.id.profile -> {

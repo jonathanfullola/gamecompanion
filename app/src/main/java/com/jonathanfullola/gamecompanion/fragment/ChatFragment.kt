@@ -24,10 +24,6 @@ import kotlinx.android.synthetic.main.fragment_chat.*
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- *
- */
 class ChatFragment : Fragment() {
 
     override fun onCreateView(
@@ -57,12 +53,17 @@ class ChatFragment : Fragment() {
     private val adapter = ChatAdapter(emptyList())
 
     private fun sendMessage(text: String){
-        val chatMessage = ChatMessage(text = text, timesteamp = System.currentTimeMillis(), userId = FirebaseAuth.getInstance().currentUser?.uid)
+        val chatMessage = ChatMessage(
+            text = text,
+            timesteamp = System.currentTimeMillis(),
+            userId = FirebaseAuth.getInstance().currentUser?.uid
+        )
         FirebaseFirestore.getInstance()
             .collection(COLLECTION_CHAT)
             .add(chatMessage)
             .addOnSuccessListener {
                 Log.i("ChatFragment", "MessageAdded")
+                subscribeToMessages()
             }
             .addOnFailureListener{
                 it.printStackTrace()

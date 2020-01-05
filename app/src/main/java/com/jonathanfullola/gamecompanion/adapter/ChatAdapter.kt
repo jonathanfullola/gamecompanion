@@ -9,37 +9,32 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.jonathanfullola.gamecompanion.R
 import com.jonathanfullola.gamecompanion.model.ChatMessage
+import kotlinx.android.synthetic.main.fragment_profile.view.*
+import kotlinx.android.synthetic.main.item_chat.view.*
 import kotlinx.android.synthetic.main.item_guide.view.*
 
-class ChatAdapter: RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
+class ChatAdapter(var list: List<ChatMessage>):RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
 
-    var elements = List<ChatMessage>()
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val textView = itemView.textview
+    }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatAdapter.ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_guide,parent,false)
-        return ChatAdapter.ViewHolder(itemView)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_chat, parent, false)
+        return ViewHolder(view)
     }
 
     // Total List Items
     override fun getItemCount(): Int {
-        return elements.count()
+        return list.count()
     }
 
-    // UPDATE Item (holder: ViewHolder) at specific position (position: Int)
-    override fun onBindViewHolder(holder: GuideListAdapter.ViewHolder, position: Int) {
-        val element = elements[position]
-
-        // Update Views
-        holder.title.text = element.text
-        holder.title.timeStamp = element.timesteamp
-        holder.title.userId = element.userId
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.textView.text = list[position].text
 
     }
 
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val msg: TextView = itemView.title
-    }
 }
 
 
