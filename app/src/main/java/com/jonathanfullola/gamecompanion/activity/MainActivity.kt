@@ -5,11 +5,11 @@ import android.os.Bundle
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.jonathanfullola.fragment.StreamsFragment
 import com.jonathanfullola.gamecompanion.R
 import com.jonathanfullola.gamecompanion.fragment.ChatFragment
 import com.jonathanfullola.gamecompanion.fragment.GuideFragment
 import com.jonathanfullola.gamecompanion.fragment.ProfileFragment
-import com.jonathanfullola.gamecompanion.fragment.StreamsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
