@@ -21,7 +21,7 @@ interface TwitchApiService {
     //Endpoint Games
     @Headers("Client-ID: $clientId")
     @GET("games")
-    fun getGames(@Query("id") gameId: String?):retrofit2.Call<GamesResponse>
+    fun getGames(@Query("id") gameIds: List<String>?):retrofit2.Call<GamesResponse>
 
     companion object{
 
