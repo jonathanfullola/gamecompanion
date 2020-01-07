@@ -2,6 +2,7 @@ package com.jonathanfullola.gamecompanion.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -13,6 +14,22 @@ import com.jonathanfullola.gamecompanion.fragment.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+
+    override fun onBackPressed() {
+        //Dialog
+        AlertDialog.Builder(this)
+            .setTitle("Alert")
+            .setMessage("Are you sure you want to exit?")
+            .setPositiveButton("Yes"){dialog, buttonId ->
+                dialog.dismiss()
+                finish()
+            }
+            .setNegativeButton("No"){dialog, buttonId ->
+                dialog.dismiss()
+            }
+            .show()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
