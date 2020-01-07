@@ -43,7 +43,7 @@ class GuideListAdapter: RecyclerView.Adapter<GuideListAdapter.ViewHolder>(){
             val intent: Intent = Intent(holder.title.context, GuideDetailActivity::class.java)
             intent.putExtra("guideTitle", element.title)
             intent.putExtra("guideImage", element.url)
-            intent.putExtra("guideDescription", element.description)
+            intent.putExtra("guideDescription", element.text)
             startActivity(holder.title.context, intent, null)
         }
     }
