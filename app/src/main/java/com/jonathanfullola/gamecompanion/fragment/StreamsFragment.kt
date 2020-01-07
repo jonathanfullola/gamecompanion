@@ -25,7 +25,7 @@ class StreamsFragment: Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ):  View? {
-        return inflater.inflate(R.layout.fragment_streams,container)
+        return inflater.inflate(R.layout.fragment_streams,container,false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
