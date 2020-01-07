@@ -15,13 +15,13 @@ class GuideDetailActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guide_detail)
-        if(intent.hasExtra("guideTitle") && intent.hasExtra("guideImage")){
+        if(intent.hasExtra("guideTitle") && intent.hasExtra("guideImage") && intent.hasExtra("guideDescription")){
             val title = intent.getStringExtra("guideTitle")
             val image = intent.getStringExtra("guideImage")
+            val textDescription = intent.getStringExtra("guideDescription")
             guideTitle.setText(title)
             Glide.with(this).load(image).into(guideImageView)
-            description.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum tincidunt enim eu vulputate. Cras convallis tristique felis eget porttitor. Donec tortor risus, efficitur at pulvinar ut, aliquam sit amet nibh. Duis auctor auctor urna, in fringilla ligula lacinia non. Phasellus vel faucibus orci. Praesent diam sem, ultricies eu nibh in, gravida blandit massa. Nullam consectetur maximus enim, eu auctor mauris. Donec id tempus nunc. Suspendisse molestie tellus est, id pulvinar risus posuere vitae.")
-
+            description.setText(textDescription)
         }
 
     }
