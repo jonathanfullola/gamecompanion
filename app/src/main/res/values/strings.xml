@@ -26,5 +26,7 @@
     <string name="user_created_succesfully">User created</string>
     <string name="register_activity">Register</string>
     <string name="login_activity">Login</string>
+    <string name="guide_detail_activity">GuideDetail</string>
+
 
 </resources>

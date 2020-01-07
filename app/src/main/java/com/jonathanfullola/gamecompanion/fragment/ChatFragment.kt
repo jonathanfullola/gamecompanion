@@ -85,6 +85,8 @@ class ChatFragment : Fragment() {
                     ?.map{it.toObject(ChatMessage::class.java)?:ChatMessage()}
                     ?: emptyList()
 
+                var orderedMessages = messages.sortedWith(compareBy{it.timesteamp})
+
                 //Update List
                 adapter.list = messages
                 adapter.notifyDataSetChanged()

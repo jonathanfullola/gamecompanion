@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:background="@color/guideColor"
+        >
+
+
+
+    <LinearLayout
+            android:id="@+id/guideLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top">
+
+        <ImageView
+                android:layout_margin="@dimen/marginEnd"
+                android:id="@+id/guideImageView"
+                android:layout_width="@dimen/guideImg_w"
+                android:layout_height="@dimen/guideImg_h"
+                android:src="@drawable/link"
+                />
+        <TextView
+                android:id="@+id/guideTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title description"
+                android:layout_gravity="center"
+                android:textSize="@dimen/guide_font_size"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:fontFamily="@font/zeldafont"
+                />
+
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title description"
+            android:layout_gravity="top"
+            android:layout_marginLeft="@dimen/guideTextMargin"
+            android:layout_marginRight="@dimen/guideTextMargin"
+            android:textSize="@dimen/guide_font_size_text"
+            android:textColor="@color/white"
+            android:fontFamily="@font/zeldafont"
+            />
+
+
+</LinearLayout>

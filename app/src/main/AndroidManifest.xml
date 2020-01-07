@@ -17,6 +17,10 @@
                   android:label="@string/register_activity"
                   android:parentActivityName=".activity.MainActivity">
         </activity>
+        <activity android:name=".activity.GuideDetailActivity"
+                android:label="@string/guide_detail_activity"
+                android:parentActivityName=".activity.MainActivity">
+        </activity>
         <activity android:name=".activity.LoginActivity"
                   android:label="@string/login_activity"
                   android:parentActivityName=".activity.MainActivity">

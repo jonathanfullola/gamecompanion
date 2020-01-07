@@ -23,6 +23,7 @@ interface TwitchApiService {
     @GET("games")
     fun getGames(@Query("id") gameIds: List<String>?):retrofit2.Call<GamesResponse>
 
+    //TO DO: ASK FOR ENDPOINTS, MAYBE ADD ENDPOINT GAMES
     companion object{
 
         private const val clientId = "ywvglt0gib8rqdly0ejobehqfi071m"
@@ -32,6 +33,7 @@ interface TwitchApiService {
             .baseUrl("https://api.twitch.tv/helix/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
         //Endpoints
         var endpoints = retrofit.create<TwitchApiService>(TwitchApiService::class.java)
     }
