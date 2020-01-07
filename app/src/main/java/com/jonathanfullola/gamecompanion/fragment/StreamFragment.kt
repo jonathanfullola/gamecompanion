@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.jonathanfullola.gamecompanion.R
 import com.jonathanfullola.gamecompanion.adapter.StreamAdapter
 import com.jonathanfullola.gamecompanion.model.GamesResponse
@@ -30,8 +31,8 @@ class StreamsFragment: Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = StreamAdapter(ArrayList())
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        val adapter = StreamAdapter()
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
 
 
@@ -47,7 +48,7 @@ class StreamsFragment: Fragment(){
                 if(response.isSuccessful){
                     Log.i("StreamFragment", response.body()?.toString() ?: "Null body")
                     //response.body()?.data?.first()?.getThumbnailUrl()
-                    val streams = response.body()?.data
+                    val streams = response.body()?.data?: emptyList()
 
                     //Get list of all Game IDs
                     val gameIds = streams?.map{it.gameId ?:""}
@@ -74,7 +75,7 @@ class StreamsFragment: Fragment(){
                                             }
                                         }
                                     }
-                                    adapter.list = ArrayList(streams.map {it.game?.name ?: ""})
+                                    adapter.list = ArrayList(streams.toList())
                                     adapter.notifyDataSetChanged()
                                     Log.i("StreamsFragment", "Got games $games")
                                     Log.i("StreamsFragment", "Got streams with games $streams")

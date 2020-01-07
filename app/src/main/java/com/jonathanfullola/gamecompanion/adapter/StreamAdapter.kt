@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jonathanfullola.gamecompanion.R
+import com.jonathanfullola.gamecompanion.model.StreamModel
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import kotlinx.android.synthetic.main.item_stream.view.*
 import java.util.stream.Stream
 
-class StreamAdapter(var list: ArrayList<String>): RecyclerView.Adapter<StreamAdapter.ViewHolder>(){
+class StreamAdapter(): RecyclerView.Adapter<StreamAdapter.ViewHolder>(){
+
+    var list = ArrayList<StreamModel>()
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val button = itemView.button
@@ -26,11 +29,12 @@ class StreamAdapter(var list: ArrayList<String>): RecyclerView.Adapter<StreamAda
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.button.text = list[position]
+        holder.button.text = list[position].username
 
         holder.button.setOnClickListener{
             val intent = Intent()
             intent.putExtra("id", list[position])
+            //holder.button.context.startActivity()
         }
     }
 }
