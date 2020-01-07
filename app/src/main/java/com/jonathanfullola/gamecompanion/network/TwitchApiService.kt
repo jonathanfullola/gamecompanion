@@ -15,7 +15,7 @@ interface TwitchApiService {
 
     //Endpoint Streams
     @Headers("Client-ID: $clientId")
-    @GET("streams")
+    @GET("streams?game_id=11557")
     fun getStreams(): retrofit2.Call<StreamsResponse>
 
     //Endpoint Games
