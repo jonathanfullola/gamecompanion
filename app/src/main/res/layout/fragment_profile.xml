@@ -5,19 +5,21 @@
              android:layout_height="match_parent"
              tools:context=".fragment.ProfileFragment"
              android:orientation="vertical"
-              android:gravity="center"
+             android:gravity="center"
              android:background="@drawable/profilebg">
-
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/guide_font_size"
+            ></LinearLayout>
 
     <ImageView
+            android:id="@+id/avatar"
             android:layout_width="125dp"
             android:layout_height="125dp"
-            android:id="@+id/avatar"
-            android:src="@drawable/userdefault"
             android:layout_gravity="left"
             android:layout_marginLeft="@dimen/guide_font_size"
-            android:layout_marginTop="@dimen/imagetop"
-            />
+            android:clickable="true"
+            android:src="@drawable/userdefault" />
 
     <TextView
             android:id="@+id/usernameTextView"
@@ -62,7 +64,6 @@
             android:background="@color/white"
             android:layout_height="@dimen/item_medium_height"
             android:text="@string/logout"/>
-
 
 
 </LinearLayout>

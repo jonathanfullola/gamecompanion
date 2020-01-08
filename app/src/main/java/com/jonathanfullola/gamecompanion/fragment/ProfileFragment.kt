@@ -55,6 +55,7 @@ class ProfileFragment : Fragment() {
         initUI()
     }
 
+
     override fun onResume() {
         super.onResume()
         initUI()
@@ -65,7 +66,7 @@ class ProfileFragment : Fragment() {
             loginButton.visibility = View.VISIBLE
             logoutButton.visibility = View.GONE
             usernameTextView.visibility = View.GONE
-            avatar.setImageResource(R.drawable.ic_profile)
+            avatar.setImageResource(R.drawable.userdefault)
             loginButton.setOnClickListener{
                 //Todo: Go to login screen
                 startActivity(Intent(requireContext(),LoginActivity::class.java))
@@ -96,7 +97,7 @@ class ProfileFragment : Fragment() {
             }
 
             showUser()
-            takePictureButton.setOnClickListener {
+            avatar.setOnClickListener {
                 takePicture()
             }
         }

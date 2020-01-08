@@ -28,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     FirebaseAnalytics.getInstance(this).logEvent("Login_Succesfull",null)
                     finish()
+
                 }
                 .addOnFailureListener{
                     progresbar.visibility = View.GONE
