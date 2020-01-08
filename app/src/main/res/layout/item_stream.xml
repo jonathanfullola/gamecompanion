@@ -2,12 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+              android:background="@color/guideColor"
+        >
 
 
     <Button
             android:id="@+id/button"
+            android:background="@color/guideColor"
             android:layout_width="match_parent"
-            android:layout_height="70dp"/>
+            android:fontFamily="@font/zeldafont"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_size_text"
+            android:layout_height="@dimen/button_height"/>
 
 </LinearLayout>

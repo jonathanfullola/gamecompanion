@@ -6,6 +6,7 @@
              tools:context=".fragment.ProfileFragment"
              android:orientation="vertical"
               android:gravity="center"
+              android:backgroundTint="@color/guideColorNoTransStrong"
         android:background="@color/white">
 
 
@@ -13,15 +14,32 @@
             android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_medium_height"
+            android:layout_marginLeft="@dimen/chat_size_text"
+            android:layout_marginRight="@dimen/chat_size_text"
+            android:fontFamily="@font/zeldafont"
+            android:textSize="@dimen/button_size_text"
+            android:background="@color/white"
             android:text="@string/profile_register_button"/>
     <Button
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
+            android:textSize="@dimen/button_size_text"
+            android:layout_marginTop="@dimen/chat_size_text"
+            android:layout_marginLeft="@dimen/chat_size_text"
+            android:layout_marginRight="@dimen/chat_size_text"
+            android:background="@color/white"
+            android:fontFamily="@font/zeldafont"
             android:layout_height="@dimen/item_medium_height"
             android:text="@string/profile_login_button"/>
     <Button
             android:id="@+id/logoutButton"
             android:layout_width="match_parent"
+            android:textSize="@dimen/button_size_text"
+            android:fontFamily="@font/zeldafont"
+            android:layout_marginTop="@dimen/chat_size_text"
+            android:layout_marginLeft="@dimen/chat_size_text"
+            android:layout_marginRight="@dimen/chat_size_text"
+            android:background="@color/white"
             android:layout_height="@dimen/item_medium_height"
             android:text="@string/logout"/>
 
@@ -29,6 +47,9 @@
             android:id="@+id/usernameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/chat_size_text"
             android:layout_marginTop="@dimen/item_medium_height"
     />
     <ImageView
@@ -38,9 +59,15 @@
             android:src="@drawable/ic_profile"
     />
     <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/takePictureButton"
+            android:fontFamily="@font/zeldafont"
+            android:layout_marginTop="@dimen/button_size_text"
+            android:background="@color/white"
+            android:layout_marginLeft="@dimen/login_margin_left"
+            android:layout_marginRight="@dimen/login_margin_right"
+            android:textSize="@dimen/button_size_text"
             android:text="Update Picture"
     />
 

@@ -17,7 +17,6 @@ import com.jonathanfullola.gamecompanion.R
 import com.jonathanfullola.gamecompanion.adapter.ChatAdapter
 import com.jonathanfullola.gamecompanion.model.ChatMessage
 import com.jonathanfullola.gamecompanion.util.COLLECTION_CHAT
-import com.jonathanfullola.gamecompanion.util.COLLECTION_GUIDE
 import kotlinx.android.synthetic.main.fragment_chat.*
 
 
@@ -85,10 +84,12 @@ class ChatFragment : Fragment() {
                     ?.map{it.toObject(ChatMessage::class.java)?:ChatMessage()}
                     ?: emptyList()
 
+
                 var orderedMessages = messages.sortedWith(compareBy{it.timesteamp})
+                //var orderedMessages = messages.sortedWith(compareBy{it.timesteamp})
 
                 //Update List
-                adapter.list = messages
+                adapter.list = orderedMessages
                 adapter.notifyDataSetChanged()
             }
 

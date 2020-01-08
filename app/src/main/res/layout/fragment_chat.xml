@@ -4,7 +4,7 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context=".fragment.ChatFragment"
-             android:background="@color/white"
+                android:background="@color/guideColorNoTransStrong"
              android:orientation="vertical"
         >
 
@@ -14,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@id/bottomContent"
+
     />
 
 
@@ -22,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_medium_height"
             android:orientation="vertical"
+
             android:layout_alignParentBottom="true"
     >
         <EditText
@@ -29,6 +31,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_toStartOf="@+id/sendButton"
+                android:textColor="@color/white"
+                android:textStyle="bold"
         />
 
         <Button

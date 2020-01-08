@@ -7,40 +7,56 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_marginStart="@dimen/marginStart"
-        android:layout_marginEnd="@dimen/marginEnd"
+        android:background="@color/guideColorNoTransStrong"
         tools:context=".activity.RegisterActivity">
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
             android:id="@+id/usernameText"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_medium_height"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/chat_size_text"
+            android:layout_marginRight="@dimen/chat_size_text"
             android:hint="@string/username_hint"
             android:gravity="center"
     />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
             android:id="@+id/emailText"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_medium_height"
+            android:layout_marginLeft="@dimen/chat_size_text"
+            android:layout_marginRight="@dimen/chat_size_text"
             android:hint="@string/email_hint"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:gravity="center"
     />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
             android:id="@+id/passwordText"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_medium_height"
+            android:layout_marginLeft="@dimen/chat_size_text"
+            android:layout_marginRight="@dimen/chat_size_text"
             android:hint="@string/password_hint"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="textPassword"
             android:gravity="center"
     />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
             android:id="@+id/registerbutton"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_medium_height"
+            android:layout_marginTop="@dimen/button_size_text"
             android:gravity="center"
+            android:layout_marginLeft="@dimen/login_margin_left"
+            android:layout_marginRight="@dimen/login_margin_right"
+            android:textSize="@dimen/login_button_size_text"
+            android:background="@color/white"
             android:text="@string/register_button"
             style="@style/Widget.AppCompat.Button.Borderless"
     />

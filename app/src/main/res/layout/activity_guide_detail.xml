@@ -43,6 +43,7 @@
             android:text="Title description"
             android:layout_gravity="top"
             android:layout_marginLeft="@dimen/guideTextMargin"
+            android:justificationMode="inter_word"
             android:layout_marginRight="@dimen/guideTextMargin"
             android:textSize="@dimen/guide_font_size_text"
             android:textColor="@color/white"
