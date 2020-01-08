@@ -6,9 +6,29 @@
              tools:context=".fragment.ProfileFragment"
              android:orientation="vertical"
               android:gravity="center"
-              android:backgroundTint="@color/guideColorNoTransStrong"
-        android:background="@color/white">
+             android:background="@drawable/profilebg">
 
+
+    <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:id="@+id/avatar"
+            android:src="@drawable/userdefault"
+            android:layout_gravity="left"
+            android:layout_marginLeft="@dimen/guide_font_size"
+            android:layout_marginTop="@dimen/imagetop"
+            />
+
+    <TextView
+            android:id="@+id/usernameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/chat_size_text"
+            android:layout_marginBottom="@dimen/textbottom"
+            android:layout_marginTop="@dimen/item_medium_height"
+            />
 
     <Button
             android:id="@+id/registerButton"
@@ -43,32 +63,6 @@
             android:layout_height="@dimen/item_medium_height"
             android:text="@string/logout"/>
 
-    <TextView
-            android:id="@+id/usernameTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="@dimen/chat_size_text"
-            android:layout_marginTop="@dimen/item_medium_height"
-    />
-    <ImageView
-            android:layout_width="125dp"
-            android:layout_height="125dp"
-            android:id="@+id/avatar"
-            android:src="@drawable/ic_profile"
-    />
-    <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/takePictureButton"
-            android:fontFamily="@font/zeldafont"
-            android:layout_marginTop="@dimen/button_size_text"
-            android:background="@color/white"
-            android:layout_marginLeft="@dimen/login_margin_left"
-            android:layout_marginRight="@dimen/login_margin_right"
-            android:textSize="@dimen/button_size_text"
-            android:text="Update Picture"
-    />
+
 
 </LinearLayout>
