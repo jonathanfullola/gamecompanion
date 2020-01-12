@@ -13,10 +13,12 @@ import com.jonathanfullola.gamecompanion.R
 import com.jonathanfullola.gamecompanion.adapter.StreamAdapter
 import com.jonathanfullola.gamecompanion.model.GamesResponse
 import com.jonathanfullola.gamecompanion.model.StreamsResponse
+import com.jonathanfullola.gamecompanion.model.VideoResponse
 import com.jonathanfullola.gamecompanion.network.TwitchApiService
 import kotlinx.android.synthetic.main.fragment_streams.*
 import kotlinx.coroutines.launch
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 
 class StreamsFragment: Fragment(){
@@ -92,6 +94,26 @@ class StreamsFragment: Fragment(){
                     Log.w("StreamFragment",response.message())
                 }
             }
+        })
+
+        //Get Videos
+        TwitchApiService.endpoints.getVideos().enqueue(object: retrofit2.Callback<VideoResponse>{
+            override fun onFailure(call: Call<VideoResponse>, t: Throwable) {
+                Log.w("StreamsFragment", t)
+            }
+
+            override fun onResponse(call: Call<VideoResponse>, response: Response<VideoResponse>) {
+                Log.i("StreamFragment","++ onResponse ++")
+                if(response.isSuccessful){
+                    Log.i("StreamFragment", response.body()?.toString() ?: "Null body")
+                    //response.body()?.data?.first()?.getThumbnailUrl()
+                    val videos = response.body()?.data?: emptyList()
+                    Log.i("StreamsFragment", "Got videos  $videos")
+
+                }
+            }
+
+
         })
     }
 }

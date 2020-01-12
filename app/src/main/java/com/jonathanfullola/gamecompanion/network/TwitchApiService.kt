@@ -26,7 +26,7 @@ interface TwitchApiService {
 
     //Endpoint Videos
     @Headers("Client-ID: $clientId")
-    @GET("videos")
+    @GET("videos?game_id=11557")
     fun getVideos(): retrofit2.Call<VideoResponse>
 
     //TO DO: ASK FOR ENDPOINTS, MAYBE ADD ENDPOINT GAMES
