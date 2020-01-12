@@ -3,6 +3,7 @@ package com.jonathanfullola.gamecompanion.network
 import com.jonathanfullola.gamecompanion.model.GameModel
 import com.jonathanfullola.gamecompanion.model.GamesResponse
 import com.jonathanfullola.gamecompanion.model.StreamsResponse
+import com.jonathanfullola.gamecompanion.model.VideoResponse
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -22,6 +23,11 @@ interface TwitchApiService {
     @Headers("Client-ID: $clientId")
     @GET("games")
     fun getGames(@Query("id") gameIds: List<String>?):retrofit2.Call<GamesResponse>
+
+    //Endpoint Videos
+    @Headers("Client-ID: $clientId")
+    @GET("videos")
+    fun getVideos(): retrofit2.Call<VideoResponse>
 
     //TO DO: ASK FOR ENDPOINTS, MAYBE ADD ENDPOINT GAMES
     companion object{
